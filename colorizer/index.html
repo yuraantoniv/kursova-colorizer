@@ -46,6 +46,98 @@
                         <input type="file" id="img-for-work" name="img" accept="image/*">
                     </form> 
                     <img id="img-result" src=""><br>
+                    <button onclick="paintImage()" class="button-result" id="button-res">Paint Photo</button>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <section class="resume-section" id="examples">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">
+                        Examples
+                    </h2>
+                    <img src="assets/img/example.jpg" class="example-img">
+                </div>
+            </section>
+            <hr class="m-0" />
+            <section class="resume-section" id="how-it-works">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">
+                        How it works
+                    </h2>
+                    <img src="assets/img/net_diagram.jpg" class="diagram-img">
+                    <p class="about">Thanks to the Deep Dream algorithm, we can see the performance of each filter at each level of the neural network</p>
+                    <div class="row">
+                        <div class="col"><img src="assets/img/steps/deepdream_conv1_2.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv2_1.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv2_2.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv3_1.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv3_2.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv3_3.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv4_1.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv4_2.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv4_3.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv5_1.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv5_2.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv5_3.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv6_1.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv6_2.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv6_3.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv7_1.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv7_2.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                        <div class="col"><img src="assets/img/steps/deepdream_conv7_3.jpg" class="steps-img" onclick="window.open(this.src)"></div>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <section class="resume-section" id="more-works">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">
+                        More works
+                    </h2>
+                    <div class="initial">
+                        <img src="assets/img/avatar-img.jpeg" class="avatar-img">
+                        <h3 class="name">Yurii Antoniv</h3>
+                    </div>
+
+                    <p>You can find more works from the creator at the links</p>
+                        <div class="links">
+                            <a href="https://github.com/yuraantoniv" class="brand"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/yura-antoniv" class="brand"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+    </body>
+</html>
+
+<script>
+deepai.setApiKey('cddf4d3b-7a53-4213-991b-15b9310a0354');
+
+document.getElementById('button-res').onclick = (async function() {
+    var resp = await deepai.callStandardApi("colorizer", {
+            image: document.getElementById('img-for-work'),
+    });
+    console.log(resp);
+    document.getElementById('img-result').src = resp.output_url;
+})()
+
+</script>
+
+            <section class="resume-section" id="colorizer">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        Colorizer
+                    </h1>
+                    <div class="subheading mb-5">
+                        Color the black and white photo
+                    </div>
+                    <form>
+                        <label for="img">Select image:</label>
+                        <input type="file" id="img-for-work" name="img" accept="image/*">
+                    </form> 
+                    <img id="img-result" src=""><br>
                     <button onclick="paintImage()" class="button-result">Paint Photo</button>
                 </div>
             </section>
